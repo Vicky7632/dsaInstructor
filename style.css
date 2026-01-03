@@ -1,0 +1,263 @@
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* =========================
+   THEME VARIABLES
+========================= */
+:root {
+    --bg: #0f172a;
+    --sidebar: #020617;
+    --card: #020617;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --border: #1e293b;
+}
+
+body.light {
+    --bg: #f8fafc;
+    --sidebar: #e2e8f0;
+    --card: #ffffff;
+    --text: #020617;
+    --muted: #475569;
+    --accent: #2563eb;
+    --border: #cbd5f5;
+}
+
+/* =========================
+   BASE
+========================= */
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+    width: 240px;
+    background: var(--sidebar);
+    padding: 20px;
+}
+
+.logo {
+    font-size: 22px;
+    color: var(--accent);
+    margin-bottom: 30px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu-item {
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: 0.3s;
+}
+
+.menu-item i {
+    margin-right: 8px;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background: var(--card);
+    color: var(--accent);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.main-content {
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 26px;
+}
+
+.header p {
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--accent);
+}
+
+/* =========================
+   CHAT CONTAINER
+========================= */
+.chat-container {
+    flex: 1;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    margin: 20px 0;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* MESSAGE BUBBLES */
+.message {
+    max-width: 75%;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* USER */
+.message.user {
+    margin-left: auto;
+    background: linear-gradient(135deg, var(--accent), #1d4ed8);
+    color: #fff;
+    border-bottom-right-radius: 4px;
+}
+
+/* AI */
+.message.ai {
+    background: var(--sidebar);
+    border-bottom-left-radius: 4px;
+}
+
+/* CODE */
+.message pre {
+    background: #020617;
+    border: 1px solid var(--border);
+    padding: 12px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.message code {
+    color: var(--accent);
+}
+
+/* =========================
+   INPUT AREA
+========================= */
+.question-box {
+    display: flex;
+    gap: 12px;
+}
+
+textarea {
+    flex: 1;
+    min-height: 80px;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    resize: none;
+    outline: none;
+}
+
+textarea::placeholder {
+    color: var(--muted);
+}
+
+button {
+    padding: 0 22px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--accent), #1d4ed8);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* LOADER */
+.loader {
+    display: none;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu {
+        display: flex;
+        gap: 8px;
+    }
+
+    .menu-item {
+        margin-bottom: 0;
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .message {
+        max-width: 90%;
+        font-size: 14px;
+    }
+
+    .question-box {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+    }
+}
+
+
